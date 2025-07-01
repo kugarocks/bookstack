@@ -462,14 +462,15 @@ body.flexbox {
     display: none;
   }
   .tri-layout-left-contents > *, .tri-layout-right-contents > * {
-    @include mixins.lightDark(opacity, 0.6, 0.75);
-    transition: opacity ease-in-out 120ms;
-    &:hover, &:focus-within {
-      opacity: 1 !important;
-    }
-    @media (prefers-contrast: more) {
-      opacity: 1 !important;
-    }
+    // @include mixins.lightDark(opacity, 0.6, 0.75);
+    // transition: opacity ease-in-out 120ms;
+    // &:hover, &:focus-within {
+    //   opacity: 1 !important;
+    // }
+    // @media (prefers-contrast: more) {
+    //   opacity: 1 !important;
+    // }
+    opacity: 1 !important;
   }
 }
 @include mixins.smaller-than(vars.$bp-l) {
