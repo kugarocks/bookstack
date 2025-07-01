@@ -6,13 +6,21 @@
 @section('content')
 
     <div class="tri-layout-mobile-tabs print-hidden">
-        <div class="grid half no-break no-gap">
+        <div class="grid third no-break no-gap">
             <button type="button"
                     refs="tri-layout@tab"
                     data-tab="info"
                     aria-label="{{ trans('common.tab_info_label') }}"
                     class="tri-layout-mobile-tab px-m py-s text-link">
                 {{ trans('common.tab_info') }}
+            </button>
+            {{-- Nav tab for Page Navigation and Book Navigation --}}
+            <button type="button"
+                    refs="tri-layout@tab"
+                    data-tab="nav"
+                    aria-label="Navigation"
+                    class="tri-layout-mobile-tab px-m py-s text-link">
+                Nav
             </button>
             <button type="button"
                     refs="tri-layout@tab"
@@ -38,6 +46,12 @@
                 <div class="tri-layout-left print-hidden" id="sidebar">
                     <aside class="tri-layout-left-contents">
                         @yield('left')
+                    </aside>
+                </div>
+
+                <div class="tri-layout-nav print-hidden" id="navigation">
+                    <aside class="tri-layout-nav-contents">
+                        @yield('nav')
                     </aside>
                 </div>
             </div>

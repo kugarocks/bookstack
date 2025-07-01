@@ -36,13 +36,6 @@
 @stop
 
 @section('left')
-
-    @if($page->tags->count() > 0)
-        <section>
-            @include('entities.tag-list', ['entity' => $page])
-        </section>
-    @endif
-
     @if ($page->attachments->count() > 0)
         <div id="page-attachments" class="mb-l">
             <h5>{{ trans('entities.pages_attachments') }}</h5>
@@ -51,7 +44,9 @@
             </div>
         </div>
     @endif
+@stop
 
+@section('nav')
     @if (isset($pageNav) && count($pageNav))
         <nav id="page-navigation" class="mb-xl" aria-label="{{ trans('entities.pages_navigation') }}">
             <h5>{{ trans('entities.pages_navigation') }}</h5>
@@ -133,6 +128,12 @@
             @endif
         </div>
     </div>
+
+    @if($page->tags->count() > 0)
+        <section class="mb-xl">
+            @include('entities.tag-list', ['entity' => $page])
+        </section>
+    @endif
 
     <div class="actions mb-xl">
         <h5>{{ trans('common.actions') }}</h5>

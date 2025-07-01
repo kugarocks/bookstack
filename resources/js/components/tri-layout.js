@@ -11,6 +11,7 @@ export class TriLayout extends Component {
         this.scrollCache = {
             content: 0,
             info: 0,
+            nav: 0,
         };
         this.lastTabShown = 'content';
 
@@ -93,7 +94,9 @@ export class TriLayout extends Component {
 
         // Toggle section
         const showInfo = (tabName === 'info');
+        const showNav = (tabName === 'nav');
         this.container.classList.toggle('show-info', showInfo);
+        this.container.classList.toggle('show-nav', showNav);
 
         // Set the scroll position from cache
         if (scroll) {

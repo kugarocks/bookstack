@@ -394,9 +394,13 @@ body.flexbox {
   grid-area: a;
   min-width: 0;
 }
+.tri-layout-nav {
+  grid-area: a;
+  min-width: 0;
+}
 
 @include mixins.larger-than(vars.$bp-xxl) {
-  .tri-layout-left-contents, .tri-layout-right-contents {
+  .tri-layout-left-contents, .tri-layout-right-contents, .tri-layout-nav-contents {
     padding: vars.$xl vars.$m;
     position: sticky;
     top: 0;
@@ -461,7 +465,7 @@ body.flexbox {
   .tri-layout-mobile-tabs {
     display: none;
   }
-  .tri-layout-left-contents > *, .tri-layout-right-contents > * {
+  .tri-layout-left-contents > *, .tri-layout-right-contents > *, .tri-layout-nav-contents > * {
     // @include mixins.lightDark(opacity, 0.6, 0.75);
     // transition: opacity ease-in-out 120ms;
     // &:hover, &:focus-within {
@@ -485,11 +489,11 @@ body.flexbox {
       padding-inline-end: vars.$m;
       grid-column: 1/1;
     }
-    .tri-layout-left > *, .tri-layout-right > * {
+    .tri-layout-left > *, .tri-layout-right > *, .tri-layout-nav > * {
       display: none;
       pointer-events: none;
     }
-    .tri-layout-left, .tri-layout-right {
+    .tri-layout-left, .tri-layout-right, .tri-layout-nav {
       padding-top: 0 !important;
     }
     .tri-layout-middle {
@@ -508,7 +512,26 @@ body.flexbox {
       .tri-layout-middle {
         display: none;
       }
+      .tri-layout-nav > * {
+        display: none;
+        pointer-events: none;
+      }
       .tri-layout-right  > *, .tri-layout-left > * {
+        display: block;
+        pointer-events: auto;
+      }
+    }
+    // Show only nav area for Page Navigation and Book Navigation
+    &.show-nav {
+      overflow: hidden;
+      .tri-layout-middle {
+        display: none;
+      }
+      .tri-layout-right > *, .tri-layout-left > * {
+        display: none;
+        pointer-events: none;
+      }
+      .tri-layout-nav > * {
         display: block;
         pointer-events: auto;
       }
