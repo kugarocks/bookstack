@@ -217,63 +217,10 @@ header .search-box.search-active:focus-within {
   }
 }
 
-
+// Hide original header links on mobile since we use full-screen menu
 @include mixins.smaller-than(vars.$bp-l) {
   header .header-links {
-    @include mixins.lightDark(background-color, #fff, #333);
     display: none;
-    z-index: 10;
-    inset-inline-end: vars.$m;
-    border-radius: 4px;
-    overflow: hidden;
-    position: absolute;
-    box-shadow: vars.$bs-hover;
-    margin-top: vars.$m;
-    padding: vars.$xs 0;
-    &.show {
-      display: block;
-    }
-  }
-  header .links a, header .dropdown-container ul li a, header .dropdown-container ul li button {
-    text-align: start;
-    display: grid;
-    align-items: center;
-    padding: 8px vars.$m;
-    gap: vars.$m;
-    color: vars.$text-dark;
-    grid-template-columns: 16px auto;
-    line-height: 1.4;
-    @include mixins.lightDark(color, vars.$text-dark, #eee);
-    svg {
-      margin-inline-end: vars.$s;
-      width: 16px;
-    }
-    &:hover {
-      background-color: var(--color-primary-light);
-      color: var(--color-primary);
-      text-decoration: none;
-    }
-    &:focus {
-      @include mixins.lightDark(background-color, #eee, #333);
-      outline-color: var(--color-primary);
-      color: var(--color-primary);
-    }
-  }
-  header .dropdown-container {
-    display: block;
-    padding-inline-start: 0;
-  }
-  header .links {
-    display: block;
-  }
-  header .dropdown-container ul {
-    display: block !important;
-    position: relative;
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
   }
 }
 
@@ -286,29 +233,22 @@ header .search-box.search-active:focus-within {
   overflow-y: auto;
   
   // Hide scrollbar but keep scroll functionality
-  scrollbar-width: none; // Firefox
-  -ms-overflow-style: none; // Internet Explorer 10+
-  
-  &::-webkit-scrollbar { // WebKit
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
     display: none;
   }
   
   .mobile-menu-content {
-    width: 100%;
-    
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
-      display: block !important;
-      position: relative !important;
-      background-color: transparent !important;
-      border: 0 !important;
-      box-shadow: none !important;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
       
       li {
-        margin: 0;
-        
         a, button {
           display: flex;
           align-items: center;
@@ -319,12 +259,8 @@ header .search-box.search-active:focus-within {
           text-decoration: none;
           border: none;
           background: none;
-          font-size: 1em;
           text-align: left;
           border-radius: 6px;
-          margin-bottom: 4px;
-          cursor: pointer;
-          font-family: inherit;
           
           svg {
             width: 20px;
