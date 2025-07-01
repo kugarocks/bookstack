@@ -67,7 +67,8 @@ export class TriLayout extends Component {
      */
     mobileTabClick(event) {
         const {tab} = event.target.dataset;
-        this.showTab(tab);
+        // Don't scroll when switching to content tab to prevent page jumping
+        this.showTab(tab, false);
     }
 
     /**

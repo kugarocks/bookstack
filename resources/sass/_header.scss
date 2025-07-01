@@ -293,7 +293,7 @@ header .search-box.search-active:focus-within {
   margin: 0;
   @include mixins.lightDark(background-color, #FFF, #222);
   @include mixins.lightDark(border-bottom-color, #BBB, #333);
-  &:first-child {
+  &:first-child, &:nth-child(2) {
     border-inline-end: 1px solid #DDD;
     @include mixins.lightDark(border-inline-end-color, #DDD, #000);
   }
