@@ -152,7 +152,7 @@ header .search-box {
   .entity-item-snippet {
     font-size: .8rem;
   }
-  .entity-list-item-name {
+  .entity-item-snippet {
     font-size: .9rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -274,6 +274,92 @@ header .search-box.search-active:focus-within {
     padding: 0;
     margin: 0;
     box-shadow: none;
+  }
+}
+
+// Mobile body menu styles
+.mobile-menu-body-container {
+  @include mixins.lightDark(background-color, #fff, #222);
+  width: 100%;
+  min-height: 100vh;
+  padding: vars.$m;
+  overflow-y: auto;
+  
+  // Hide scrollbar but keep scroll functionality
+  scrollbar-width: none; // Firefox
+  -ms-overflow-style: none; // Internet Explorer 10+
+  
+  &::-webkit-scrollbar { // WebKit
+    display: none;
+  }
+  
+  .mobile-menu-content {
+    width: 100%;
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: block !important;
+      position: relative !important;
+      background-color: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      
+      li {
+        margin: 0;
+        
+        a, button {
+          display: flex;
+          align-items: center;
+          padding: vars.$m;
+          gap: vars.$m;
+          width: 100%;
+          @include mixins.lightDark(color, vars.$text-dark, #eee);
+          text-decoration: none;
+          border: none;
+          background: none;
+          font-size: 1em;
+          text-align: left;
+          border-radius: 6px;
+          margin-bottom: 4px;
+          cursor: pointer;
+          font-family: inherit;
+          
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+          
+          &:hover {
+            background-color: var(--color-primary-light);
+            color: var(--color-primary);
+          }
+          
+          &:focus {
+            @include mixins.lightDark(background-color, #eee, #333);
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+            color: var(--color-primary);
+          }
+        }
+        
+        hr {
+          margin: vars.$m 0;
+          margin-left: calc(-2 * vars.$m); // Extend to container edge, offsetting parent container padding
+          margin-right: calc(-2 * vars.$m); // Extend to container edge, offsetting parent container padding
+          width: calc(100% + 4 * vars.$m); // Compensate for left/right margins and parent container padding
+          border: none;
+          border-top: 1px solid;
+          @include mixins.lightDark(border-color, #ddd, #444);
+        }
+        
+        form {
+          margin: 0;
+          width: 100%;
+        }
+      }
+    }
   }
 }
 
