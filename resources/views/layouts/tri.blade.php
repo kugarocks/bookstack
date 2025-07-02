@@ -6,31 +6,50 @@
 @section('content')
 
     <div class="tri-layout-mobile-tabs print-hidden">
-        <div class="grid third no-break no-gap">
-            <button type="button"
-                    refs="tri-layout@tab"
-                    data-tab="info"
-                    aria-label="{{ trans('common.tab_info_label') }}"
-                    class="tri-layout-mobile-tab px-m py-s text-link">
-                {{ trans('common.tab_info') }}
-            </button>
-            {{-- Nav tab for Page Navigation and Book Navigation --}}
-            <button type="button"
-                    refs="tri-layout@tab"
-                    data-tab="nav"
-                    aria-label="Navigation"
-                    class="tri-layout-mobile-tab px-m py-s text-link">
-                Nav
-            </button>
-            <button type="button"
-                    refs="tri-layout@tab"
-                    data-tab="content"
-                    aria-label="{{ trans('common.tab_content_label') }}"
-                    aria-selected="true"
-                    class="tri-layout-mobile-tab px-m py-s text-link active">
-                {{ trans('common.tab_content') }}
-            </button>
-        </div>
+        @if(request()->is('books/*/page/*'))
+            <div class="grid third no-break no-gap">
+                <button type="button"
+                        refs="tri-layout@tab"
+                        data-tab="info"
+                        aria-label="{{ trans('common.tab_info_label') }}"
+                        class="tri-layout-mobile-tab px-m py-s text-link">
+                    {{ trans('common.tab_info') }}
+                </button>
+                <button type="button"
+                        refs="tri-layout@tab"
+                        data-tab="nav"
+                        aria-label="Navigation"
+                        class="tri-layout-mobile-tab px-m py-s text-link">
+                    Nav
+                </button>
+                <button type="button"
+                        refs="tri-layout@tab"
+                        data-tab="content"
+                        aria-label="{{ trans('common.tab_content_label') }}"
+                        aria-selected="true"
+                        class="tri-layout-mobile-tab px-m py-s text-link active">
+                    {{ trans('common.tab_content') }}
+                </button>
+            </div>
+        @else
+            <div class="grid half no-break no-gap">
+                <button type="button"
+                        refs="tri-layout@tab"
+                        data-tab="info"
+                        aria-label="{{ trans('common.tab_info_label') }}"
+                        class="tri-layout-mobile-tab px-m py-s text-link">
+                    {{ trans('common.tab_info') }}
+                </button>
+                <button type="button"
+                        refs="tri-layout@tab"
+                        data-tab="content"
+                        aria-label="{{ trans('common.tab_content_label') }}"
+                        aria-selected="true"
+                        class="tri-layout-mobile-tab px-m py-s text-link active">
+                    {{ trans('common.tab_content') }}
+                </button>
+            </div>
+        @endif
     </div>
 
     <div refs="tri-layout@container" class="tri-layout-container" @yield('container-attrs') >
