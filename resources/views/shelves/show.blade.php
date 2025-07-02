@@ -19,9 +19,8 @@
 
     <main class="card content-wrap">
 
-        <div class="flex-container-row wrap v-center">
-            <h1 class="flex fit-content break-text">{{ $shelf->name }}</h1>
-            <div class="flex"></div>
+        <div class="flex-container-row v-center">
+            <h1 class="flex break-text text-limit-lines-1">{{ $shelf->name }}</h1>
             <div class="flex fit-content text-m-right my-m ml-m">
                 @include('common.sort', $listOptions->getSortControlData())
             </div>

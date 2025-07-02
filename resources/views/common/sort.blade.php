@@ -3,7 +3,7 @@
     $order = (isset($order) && in_array($order, ['asc', 'desc'])) ? $order : 'asc';
 ?>
 <div component="list-sort-control" class="list-sort-container">
-    <div class="list-sort-label">{{ trans('common.sort') }}</div>
+    <!-- <div class="list-sort-label">{{ trans('common.sort') }}</div> -->
     <form refs="list-sort-control@form"
           @if($useQuery ?? false)
               action="{{ url()->current() }}"

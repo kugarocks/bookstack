@@ -561,7 +561,7 @@ ul.pagination {
 }
 
 .entity-list-item-children {
-  padding: vars.$m vars.$l;
+  padding: vars.$m vars.$m;
   > div {
     overflow: hidden;
     padding: 0 0 vars.$xs 0;
