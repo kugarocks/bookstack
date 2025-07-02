@@ -395,7 +395,7 @@ body.flexbox {
   min-width: 0;
 }
 .tri-layout-nav {
-  // grid-area: a;
+  grid-area: a;
   min-width: 0;
 }
 
@@ -476,8 +476,23 @@ body.flexbox {
     // }
     opacity: 1 !important;
   }
+  // Show nav content in left area on desktop
+  .desktop-nav-content {
+    display: block;
+    margin-top: vars.$m;
+  }
+  
+  // Hide standalone nav area on desktop
+  .tri-layout-nav {
+    display: none;
+  }
 }
 @include mixins.smaller-than(vars.$bp-l) {
+  // Hide nav content in left area on mobile
+  .desktop-nav-content {
+    display: none;
+  }
+  
   .tri-layout-container {
     grid-template-areas:  none;
     grid-template-columns: 1fr;
@@ -516,24 +531,33 @@ body.flexbox {
         display: none;
         pointer-events: none;
       }
-      .tri-layout-right  > *, .tri-layout-left > * {
+      .tri-layout-right > *, .tri-layout-left > * {
         display: block;
         pointer-events: auto;
       }
     }
     // Show only nav area for Page Navigation and Book Navigation
+    // Use left area with nav content instead of standalone nav area
     &.show-nav {
       overflow: hidden;
       .tri-layout-middle {
         display: none;
       }
-      .tri-layout-right > *, .tri-layout-left > * {
+      .tri-layout-right > *, .tri-layout-nav > * {
         display: none;
         pointer-events: none;
       }
-      .tri-layout-nav > * {
+      .tri-layout-left > * {
         display: block;
         pointer-events: auto;
+      }
+      // Show nav content in left area on mobile nav tab
+      .desktop-nav-content {
+        display: block;
+      }
+      // Hide other left content when showing nav
+      .tri-layout-left-contents > *:not(.desktop-nav-content) {
+        display: none;
       }
     }
   }

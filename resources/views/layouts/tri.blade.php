@@ -65,6 +65,9 @@
                 <div class="tri-layout-left print-hidden" id="sidebar">
                     <aside class="tri-layout-left-contents">
                         @yield('left')
+                        <div class="desktop-nav-content">
+                            @yield('nav')
+                        </div>
                     </aside>
                 </div>
 
