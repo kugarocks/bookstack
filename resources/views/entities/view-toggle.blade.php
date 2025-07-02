@@ -9,6 +9,11 @@
                 <span class="icon">@icon('grid')</span>
                 <span>{{ trans('common.grid_view') }}</span>
             </button>
+        @elseif ($view === 'grid')
+            <button type="submit" name="view" value="tree" class="icon-list-item text-link">
+                <span class="icon">@icon('folder')</span>
+                <span>{{ trans('common.tree_view') }}</span>
+            </button>
         @else
             <button type="submit" name="view" value="list" class="icon-list-item text-link">
                 <span class="icon">@icon('list')</span>

@@ -8,6 +8,7 @@ use BookStack\Entities\Queries\BookQueries;
 use BookStack\Entities\Queries\BookshelfQueries;
 use BookStack\Entities\Repos\BookshelfRepo;
 use BookStack\Entities\Tools\ShelfContext;
+use BookStack\Entities\Tools\BookContents;
 use BookStack\Exceptions\ImageUploadException;
 use BookStack\Exceptions\NotFoundException;
 use BookStack\Http\Controller;
@@ -50,11 +51,20 @@ class BookshelfController extends Controller
             ->take(4)
             ->get();
 
+        // For tree view, get books for each shelf
+        $shelfBooks = [];
+        if ($view === 'tree') {
+            foreach ($shelves as $shelf) {
+                $shelfBooks[$shelf->id] = $shelf->visibleBooks()->get();
+            }
+        }
+
         $this->shelfContext->clearShelfContext();
         $this->setPageTitle(trans('entities.shelves'));
 
         return view('shelves.index', [
             'shelves'     => $shelves,
+            'shelfBooks'  => $shelfBooks,
             'recents'     => $recents,
             'popular'     => $popular,
             'new'         => $new,
@@ -125,11 +135,20 @@ class BookshelfController extends Controller
         $this->shelfContext->setShelfContext($shelf->id);
         $view = setting()->getForCurrentUser('bookshelf_view_type');
 
+        // For tree view, get book contents
+        $bookContents = [];
+        if ($view === 'tree') {
+            foreach ($sortedVisibleShelfBooks as $book) {
+                $bookContents[$book->id] = (new BookContents($book))->getTree(false, false);
+            }
+        }
+
         $this->setPageTitle($shelf->getShortName());
 
         return view('shelves.show', [
             'shelf'                   => $shelf,
             'sortedVisibleShelfBooks' => $sortedVisibleShelfBooks,
+            'bookContents'            => $bookContents,
             'view'                    => $view,
             'activity'                => $activities->entityActivity($shelf, 20, 1),
             'listOptions'             => $listOptions,

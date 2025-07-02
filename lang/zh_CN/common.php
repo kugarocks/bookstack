@@ -77,6 +77,7 @@ return [
     'details' => '详细信息',
     'grid_view' => '网格视图',
     'list_view' => '列表视图',
+    'tree_view' => '树状视图',
     'default' => '默认',
     'breadcrumb' => '面包屑导航',
     'status' => '状态',

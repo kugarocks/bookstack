@@ -36,6 +36,12 @@
                             @include('books.parts.list-item', ['book' => $book])
                         @endforeach
                     </div>
+                @elseif($view === 'tree')
+                    <div class="entity-tree">
+                        @foreach($sortedVisibleShelfBooks as $book)
+                            @include('shelves.parts.tree-item', ['book' => $book])
+                        @endforeach
+                    </div>
                 @else
                     <div class="grid third">
                         @foreach($sortedVisibleShelfBooks as $book)
