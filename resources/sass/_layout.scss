@@ -461,6 +461,7 @@ body.flexbox {
     }
   }
 }
+
 @include mixins.larger-than(vars.$bp-l) {
   .tri-layout-mobile-tabs {
     display: none;
@@ -567,5 +568,18 @@ body.flexbox {
   .tri-layout-container {
     margin-inline-start: 0;
     margin-inline-end: 0;
+  }
+}
+
+// Make sidebar close to middle content
+@media (min-width: 1200px) {
+  .tri-layout-container {
+      max-width: 1600px;
+      margin: 0 auto;
+  }
+
+  .tri-layout-left-contents,
+  .tri-layout-right-contents {
+      padding: 3.25rem 0.25rem;
   }
 }
