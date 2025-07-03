@@ -23,7 +23,7 @@
         ]])
     </div>
 
-    <main class="content-wrap card">
+    <main class="content-wrap mt-m card">
         <h1 class="break-text">{{$book->name}}</h1>
         <div refs="entity-search@contentView" class="book-content">
             <div class="text-muted break-text">{!! $book->descriptionHtml() !!}</div>

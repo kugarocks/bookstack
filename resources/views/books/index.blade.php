@@ -1,6 +1,21 @@
 @extends('layouts.tri')
 
 @section('body')
+    <div class="mb-s print-hidden">
+        @include('entities.breadcrumbs', ['crumbs' => [
+            '/shelves' => [
+                'text' => trans('entities.shelves'),
+                'icon' => 'bookshelf',
+                'class' => 'text-bookshelf',
+            ],
+            '/books' => [
+                'text' => trans('entities.books'),
+                'icon' => 'books',
+                'class' => 'text-book',
+            ]
+        ]])
+    </div>
+
     @include('books.parts.list', ['books' => $books, 'view' => $view, 'listOptions' => $listOptions])
 @stop
 

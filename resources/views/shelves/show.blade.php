@@ -17,7 +17,7 @@
         ]])
     </div>
 
-    <main class="card content-wrap">
+    <main class="card content-wrap mt-m">
 
         <div class="flex-container-row v-center">
             <h1 class="flex break-text text-limit-lines-1">{{ $shelf->name }}</h1>
