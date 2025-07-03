@@ -1,7 +1,7 @@
 <main class="content-wrap mt-m card">
     <div class="grid half v-center no-row-gap">
         <h1 class="list-heading">{{ trans('entities.books') }}</h1>
-        <div class="text-m-right my-m">
+        <div class="text-right my-m">
             @include('common.sort', $listOptions->getSortControlData())
         </div>
     </div>
