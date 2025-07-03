@@ -58,7 +58,7 @@
                 </a>
             @endif
 
-            @include('entities.view-toggle', ['view' => $view, 'type' => 'books'])
+            @include('entities.view-toggle', ['view' => $view, 'type' => 'books', 'allowedViews' => ['grid', 'list']])
 
             <a href="{{ url('/tags') }}" class="icon-list-item">
                 <span>@icon('tag')</span>
