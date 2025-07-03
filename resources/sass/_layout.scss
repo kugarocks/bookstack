@@ -576,6 +576,8 @@ body.flexbox {
   .tri-layout-container {
       max-width: 1600px;
       margin: 0 auto;
+      padding-inline-start: vars.$m;
+      padding-inline-end: vars.$m;
   }
 
   .tri-layout-left-contents,
