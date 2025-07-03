@@ -1,4 +1,4 @@
-<div class="entity-list">
+<div class="entity-list compact">
     @if(count($entities) > 0)
         @foreach($entities as $index => $entity)
 
