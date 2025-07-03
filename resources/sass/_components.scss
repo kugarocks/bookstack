@@ -1225,3 +1225,22 @@ details.section-expander {
   border-bottom: 1px solid #DDD;
   @include mixins.lightDark(border-color, #DDD, #000);
 }
+
+// Ensure breadcrumb dropdown is aligned with the > symbol
+.breadcrumbs .dropdown-search-dropdown {
+  left: 0 !important;
+  right: auto !important;
+  top: 6px;
+  margin-top: 0;
+  margin-left: 4px;
+}
+
+@include mixins.smaller-than(vars.$bp-l) {
+  .breadcrumbs .dropdown-search-dropdown {
+    left: 0 !important;
+    right: auto !important;
+    top: 6px;
+    margin-top: 0;
+    margin-left: 4px;
+  }
+}
