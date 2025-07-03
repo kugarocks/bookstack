@@ -919,14 +919,11 @@ ul.pagination {
         align-items: center;
         gap: vars.$s;
         padding: vars.$xs 0;
-        border-left: 3px solid transparent;
-        padding-left: vars.$s;
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px;
         transition: all 0.15s ease;
         
         &:hover {
           @include mixins.lightDark(background-color, rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.05));
-          @include mixins.lightDark(border-left-color, #007bff, #4dabf7);
         }
         
         svg {
