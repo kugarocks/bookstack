@@ -1,15 +1,15 @@
 <div class="shelf-item">
-    <div class="shelf-header">
-        <a href="{{ $shelf->getUrl() }}" class="shelf-title">
+    <a href="{{ $shelf->getUrl() }}" class="shelf-header">
+        <div class="shelf-title">
             @icon('bookshelf')
             <span class="entity-title text-bookshelf">
                 {{ $shelf->name }}
             </span>
-        </a>
+        </div>
         @if(count($shelf->visibleBooks) > 0)
             <span class="book-count">{{ count($shelf->visibleBooks) }} {{ trans('entities.books') }}</span>
         @endif
-    </div>
+    </a>
     
     @if($shelf->getExcerpt())
         <div class="shelf-description">

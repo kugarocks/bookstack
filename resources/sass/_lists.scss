@@ -881,6 +881,13 @@ ul.pagination {
     @include mixins.lightDark(background-color, #f8f9fa, #333);
     border-bottom: 1px solid #e3e5e8;
     @include mixins.lightDark(border-bottom-color, #e3e5e8, #444);
+    text-decoration: none;
+    color: inherit;
+    
+    &:hover {
+      // @include mixins.lightDark(background-color, #f0f0f0, #3a3a3a);
+      text-decoration: underline;
+    }
     
     .shelf-title {
       display: flex;
@@ -898,12 +905,9 @@ ul.pagination {
       }
       
       .entity-title {
-        font-weight: 600;
+        font-weight: 500;
         text-decoration: none;
         font-size: 1.2em;
-        &:hover {
-          text-decoration: underline;
-        }
       }
     }
     
