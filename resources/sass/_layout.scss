@@ -614,6 +614,7 @@ body.flexbox {
         height: calc(100vh - 80px);
         overflow-y: auto;
         overflow-x: hidden;
+        scroll-padding-top: 20px;
         
         /* Hide scrollbar */
         scrollbar-width: none;
@@ -630,6 +631,7 @@ body.flexbox {
         height: calc(100vh - 80px);
         overflow-y: auto;
         overflow-x: hidden;
+        scroll-padding-top: 20px;
         
         /* Hide scrollbar */
         scrollbar-width: none;
@@ -638,5 +640,17 @@ body.flexbox {
         &::-webkit-scrollbar {
             display: none;
         }
+    }
+}
+
+/* Mobile anchor offset for tri-layout-mobile-tabs */
+@media (max-width: 999px) {
+    html {
+        scroll-padding-top: 60px;
+    }
+    
+    /* Alternative for older browsers */
+    :target {
+        scroll-margin-top: 60px;
     }
 }
