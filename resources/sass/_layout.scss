@@ -586,67 +586,57 @@ body.flexbox {
   }
 }
 
-/* Simple independent scroll control */
-header#header {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-body {
-    padding-top: 80px;
-}
-
-/* Limit the overall container height to prevent page-level scrolling */
-.tri-layout-container {
-    height: calc(100vh - 80px);
-    overflow: hidden;
-}
-
-/* Independent scrolling for left and right sidebars */
-.tri-layout-left-contents,
-.tri-layout-right-contents {
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    
-    &::-webkit-scrollbar {
-        display: none;
+/* Simple independent scroll control - Only on desktop */
+@media (min-width: 1000px) {
+    header#header {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
-}
 
-/* Independent scrolling for the middle content area */
-.tri-layout-middle,
-#main-content {
-    height: calc(100vh - 80px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    /* Hide scrollbar */
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    
-    &::-webkit-scrollbar {
-        display: none;
+    body {
+        padding-top: 80px;
     }
-}
 
-/* Restore default behavior on mobile */
-@media (max-width: 999px) {
-    .tri-layout-container,
+    /* Limit the overall container height to prevent page-level scrolling */
+    .tri-layout-container {
+        height: calc(100vh - 80px);
+        overflow: hidden;
+    }
+
+    /* Independent scrolling for left and right sidebars */
     .tri-layout-left-contents,
-    .tri-layout-right-contents,
+    .tri-layout-right-contents {
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    /* Independent scrolling for the middle content area */
     .tri-layout-middle,
     #main-content {
-        height: auto !important;
-        overflow-y: visible !important;
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 }
