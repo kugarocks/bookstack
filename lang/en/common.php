@@ -77,7 +77,6 @@ return [
     'details' => 'Details',
     'grid_view' => 'Grid View',
     'list_view' => 'List View',
-    'tree_view' => 'Tree View',
     'default' => 'Default',
     'breadcrumb' => 'Breadcrumb',
     'status' => 'Status',

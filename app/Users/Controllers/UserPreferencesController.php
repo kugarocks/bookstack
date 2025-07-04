@@ -24,7 +24,7 @@ class UserPreferencesController extends Controller
         }
 
         $view = $request->get('view');
-        if (!in_array($view, ['grid', 'list', 'tree'])) {
+        if (!in_array($view, ['grid', 'list'])) {
             $view = 'list';
         }
 

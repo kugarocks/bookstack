@@ -17,12 +17,6 @@
                     @include('shelves.parts.list-item', ['shelf' => $shelf])
                 @endforeach
             </div>
-        @elseif($view === 'tree')
-            <ul class="entity-tree">
-                @foreach($shelves as $shelf)
-                    @include('shelves.parts.shelf-tree-item', ['shelf' => $shelf, 'books' => $shelfBooks[$shelf->id] ?? []])
-                @endforeach
-            </ul>
         @else
             <div class="grid third">
                 @foreach($shelves as $key => $shelf)
