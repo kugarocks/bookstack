@@ -1,21 +1,32 @@
-<a href="{{ $shelf->getUrl() }}" class="shelf entity-list-item" data-entity-type="bookshelf" data-entity-id="{{$shelf->id}}">
-    <div class="entity-list-item-image bg-bookshelf @if($shelf->image_id) has-image @endif" style="background-image: url('{{ $shelf->getBookCover() }}')">
-        @icon('bookshelf')
+<div class="shelf-item">
+    <div class="shelf-header">
+        <a href="{{ $shelf->getUrl() }}" class="shelf-title">
+            @icon('bookshelf')
+            <span class="entity-title text-bookshelf">
+                {{ $shelf->name }}
+            </span>
+        </a>
+        @if(count($shelf->visibleBooks) > 0)
+            <span class="book-count">{{ count($shelf->visibleBooks) }} {{ trans('entities.books') }}</span>
+        @endif
     </div>
-    <div class="content py-xs">
-        <h4 class="entity-list-item-name break-text">{{ $shelf->name }}</h4>
-        <div class="entity-item-snippet">
-            <p class="text-muted break-text mb-none">{{ $shelf->getExcerpt() }}</p>
+    
+    @if($shelf->getExcerpt())
+        <div class="shelf-description">
+            <p class="text-muted">{{ $shelf->getExcerpt() }}</p>
         </div>
-    </div>
-</a>
-<div class="entity-shelf-books grid third gap-y-xs entity-list-item-children">
-    @foreach($shelf->visibleBooks as $book)
-        <div>
-            <a href="{{ $book->getUrl('?shelf=' . $shelf->id) }}" class="entity-chip text-book">
-                @icon('book')
-                {{ $book->name }}
-            </a>
+    @endif
+    
+    @if(count($shelf->visibleBooks) > 0)
+        <div class="shelf-books">
+            @foreach($shelf->visibleBooks as $book)
+                <a href="{{ $book->getUrl('?shelf=' . $shelf->id) }}" class="book-item">
+                    @icon('book')
+                    <span class="entity-title text-book">
+                        {{ $book->name }}
+                    </span>
+                </a>
+            @endforeach
         </div>
-    @endforeach
+    @endif
 </div>

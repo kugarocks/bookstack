@@ -9,7 +9,7 @@
 
     @if(count($shelves) > 0)
         @if($view === 'list')
-            <div class="entity-list">
+            <div class="entity-list shelves">
                 @foreach($shelves as $index => $shelf)
                     @if ($index !== 0)
                         <hr class="my-m">

@@ -850,3 +850,137 @@ ul.pagination {
     margin: 0;
   }
 }
+
+// Shelf panel styles for list view
+.entity-list.shelves {
+  padding: 0 16px;
+}
+
+.shelf-item {
+  margin-bottom: vars.$l;
+  border: 1px solid #e3e5e8;
+  @include mixins.lightDark(border-color, #e3e5e8, #444);
+  border-radius: 8px;
+  @include mixins.lightDark(background-color, #fff, #2a2a2a);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  @include mixins.lightDark(box-shadow, 0 2px 4px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.2));
+  transition: all 0.2s ease;
+  overflow: hidden;
+  
+  &:hover {
+    @include mixins.lightDark(border-color, #ccc, #555);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    @include mixins.lightDark(box-shadow, 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.3));
+  }
+  
+  .shelf-header {
+    display: flex;
+    align-items: center;
+    gap: vars.$s;
+    padding: vars.$m;
+    @include mixins.lightDark(background-color, #f8f9fa, #333);
+    border-bottom: 1px solid #e3e5e8;
+    @include mixins.lightDark(border-bottom-color, #e3e5e8, #444);
+    
+    .shelf-title {
+      display: flex;
+      // align-items: center;
+      text-align: start;
+      gap: vars.$xs;
+      text-decoration: none;
+      flex: 1;
+      
+      svg {
+        width: 24px;
+        height: 24px;
+        flex-shrink: 0;
+        color: rgb(169, 71, 71);
+      }
+      
+      .entity-title {
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.2em;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    
+    .book-count {
+      font-size: 0.85em;
+      @include mixins.lightDark(color, #666, #999);
+      padding: 2px 8px;
+      border-radius: 12px;
+      @include mixins.lightDark(background-color, rgba(0, 0, 0, 0.08), rgba(255, 255, 255, 0.15));
+      font-weight: 500;
+    }
+  }
+  
+  .shelf-description {
+    padding: vars.$s vars.$m 0;
+    
+    p {
+      margin: 0;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+  }
+  
+  .shelf-books {
+    padding: vars.$s vars.$m vars.$m;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vars.$s;
+    
+    .book-item {
+      display: flex;
+      text-align: start;
+      gap: vars.$xs;
+      padding: vars.$xs;
+      border-left: 3px solid transparent;
+      border-radius: 0 4px 4px 0;
+      transition: all 0.15s ease;
+      text-decoration: none;
+      color: inherit;
+      // @include mixins.lightDark(background-color, rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.05));
+      
+      &:hover {
+        @include mixins.lightDark(background-color, rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.05));
+        text-decoration: none;
+      }
+      
+      svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+        color: rgb(7, 123, 112);
+      }
+      
+      .entity-title {
+        font-size: 1em;
+        text-decoration: none;
+        font-weight: 500;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .shelf-books {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .shelf-books {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
